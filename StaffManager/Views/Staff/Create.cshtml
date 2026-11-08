@@ -1,0 +1,111 @@
+﻿@model StaffManager.Models.StaffMember
+
+@{
+    ViewData["Title"] = "Create Staff Member";
+}
+
+<div class="pageBox">
+    <h2>Create Staff Member</h2>
+
+    <form asp-action="Create" method="post" class="formBox">
+
+        <div class="fieldBox">
+            <label asp-for="StaffId"></label>
+            <input asp-for="StaffId" />
+        </div>
+
+        <div class="fieldBox">
+            <label asp-for="FullName"></label>
+            <input asp-for="FullName" />
+        </div>
+
+        <div class="fieldBox">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+        </div>
+
+        <div class="fieldBox">
+            <label asp-for="Position"></label>
+            <input asp-for="Position" />
+        </div>
+
+        <div class="fieldBox">
+            <label asp-for="Unit"></label>
+            <input asp-for="Unit" />
+        </div>
+
+        <button type="submit" class="createButton">Create Staff Member</button>
+
+    </form>
+</div>
+
+<style>
+    .pageBox {
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 30px;
+        font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+        .pageBox h2 {
+            margin-top: 0;
+            margin-bottom: 22px;
+            color: #1d1f3d;
+            border-bottom: 3px solid #4361ee;
+            padding-bottom: 12px;
+        }
+
+    .formBox {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fieldBox {
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .fieldBox label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #2b2d42;
+            font-size: 14px;
+        }
+
+        .fieldBox input {
+            padding: 10px 12px;
+            border: 1px solid #d7dbe0;
+            border-radius: 8px;
+            font-size: 14.5px;
+            outline: none;
+            transition: border-color 0.15s ease-in-out;
+        }
+
+            .fieldBox input:focus {
+                border-color: #4361ee;
+                box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+            }
+
+    .createButton {
+        margin-top: 10px;
+        padding: 11px 18px;
+        background-color: #4361ee;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(67, 97, 238, 0.35);
+        transition: all 0.15s ease-in-out;
+    }
+
+        .createButton:hover {
+            background-color: #3651d4;
+            transform: translateY(-1px);
+        }
+</style>

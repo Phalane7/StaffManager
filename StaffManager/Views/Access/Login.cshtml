@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = "Admin Login";
+}
+
+<div class="pageBox">
+    <h2>Administrator Login</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <p class="errorText">@ViewBag.Error</p>
+    }
+
+    <form method="post" class="formBox">
+        <div class="fieldBox">
+            <label>Username</label>
+            <input type="text" name="username" />
+        </div>
+
+        <div class="fieldBox">
+            <label>Password</label>
+            <input type="password" name="password" />
+        </div>
+
+        <button type="submit" class="loginButton">Login</button>
+    </form>
+</div>
+
+<style>
+    .pageBox {
+        max-width: 400px;
+        margin: 80px auto;
+        padding: 30px;
+        font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+
+        .pageBox h2 {
+            margin-top: 0;
+            margin-bottom: 22px;
+            color: #1d1f3d;
+            border-bottom: 3px solid #4361ee;
+            padding-bottom: 12px;
+            text-align: center;
+        }
+
+    .errorText {
+        color: #ef476f;
+        background-color: #fde8ec;
+        border: 1px solid #f5b8c4;
+        border-radius: 8px;
+        padding: 10px 14px;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    .formBox {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fieldBox {
+        margin-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .fieldBox label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #2b2d42;
+            font-size: 14px;
+        }
+
+        .fieldBox input {
+            padding: 10px 12px;
+            border: 1px solid #d7dbe0;
+            border-radius: 8px;
+            font-size: 14.5px;
+            outline: none;
+            transition: border-color 0.15s ease-in-out;
+        }
+
+            .fieldBox input:focus {
+                border-color: #4361ee;
+                box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+            }
+
+    .loginButton {
+        margin-top: 10px;
+        padding: 11px 18px;
+        background-color: #4361ee;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(67, 97, 238, 0.35);
+        transition: all 0.15s ease-in-out;
+    }
+
+        .loginButton:hover {
+            background-color: #3651d4;
+            transform: translateY(-1px);
+        }
+</style>

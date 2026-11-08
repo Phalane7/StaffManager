@@ -1,0 +1,175 @@
+﻿@model List<StaffManager.Models.StaffMember>
+
+@{
+    ViewData["Title"] = "Staff Members";
+}
+
+<div class="pageBox">
+    <div class="topBox">
+        <h2>Staff Members</h2>
+        <a asp-controller="Access" asp-action="Logout" class="logoutButton">Logout</a>
+    </div>
+
+    <a asp-action="Create" class="createButton">+ Create Staff Member</a>
+
+    <div class="tableBox">
+        <table class="myTable">
+            <thead>
+                <tr>
+                    <th>Staff ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Unit</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var staff in Model)
+                {
+                    <tr>
+                        <td>@staff.StaffId</td>
+                        <td>@staff.FullName</td>
+                        <td>@staff.Email</td>
+                        <td>@staff.Position</td>
+                        <td>@staff.Unit</td>
+                        <td class="actionBox">
+                            <a asp-action="Edit" asp-route-id="@staff.StaffId" class="editButton">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@staff.StaffId" class="deleteButton">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .pageBox {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        color: #2b2d42;
+    }
+
+    .topBox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        border-bottom: 3px solid #4361ee;
+        padding-bottom: 14px;
+    }
+
+        .topBox h2 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d1f3d;
+        }
+
+    .logoutButton, .createButton, .editButton, .deleteButton {
+        display: inline-block;
+        padding: 9px 18px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.15s ease-in-out;
+        border: none;
+        cursor: pointer;
+    }
+
+    .logoutButton {
+        background-color: #edf2f4;
+        color: #2b2d42;
+        border: 1px solid #d7dbe0;
+    }
+
+        .logoutButton:hover {
+            background-color: #dfe4e8;
+        }
+
+    .createButton {
+        background-color: #4361ee;
+        color: #ffffff;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 6px rgba(67, 97, 238, 0.35);
+    }
+
+        .createButton:hover {
+            background-color: #3651d4;
+            transform: translateY(-1px);
+        }
+
+    .tableBox {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+    }
+
+    .myTable {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .myTable thead {
+            background-color: #1d1f3d;
+        }
+
+            .myTable thead th {
+                color: #ffffff;
+                text-align: left;
+                padding: 14px 16px;
+                font-size: 13px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+        .myTable tbody tr {
+            border-bottom: 1px solid #eef0f4;
+            transition: background-color 0.15s ease-in-out;
+        }
+
+            .myTable tbody tr:nth-child(even) {
+                background-color: #fafbff;
+            }
+
+            .myTable tbody tr:hover {
+                background-color: #eef3ff;
+            }
+
+        .myTable tbody td {
+            padding: 13px 16px;
+            font-size: 14.5px;
+            color: #2b2d42;
+        }
+
+    .actionBox {
+        white-space: nowrap;
+    }
+
+    .editButton {
+        background-color: #4cc9f0;
+        color: #ffffff;
+        padding: 6px 14px;
+        margin-right: 6px;
+    }
+
+        .editButton:hover {
+            background-color: #34b3dd;
+        }
+
+    .deleteButton {
+        background-color: #ef476f;
+        color: #ffffff;
+        padding: 6px 14px;
+    }
+
+        .deleteButton:hover {
+            background-color: #d93a5f;
+        }
+</style>
